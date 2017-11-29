@@ -27,12 +27,12 @@ do
 		fi
 		HASH=$(echo $PW | /usr/bin/md5sum)
 		VALUE="$PW:$HASH"
-		EXISTS=$(/usr/bin/cat $PATH/passwords$i.txt | /usr/bin/grep -c $VALUE)
+		EXISTS=$(/usr/bin/cat $PATH/examples/passwords$i.txt | /usr/bin/grep -c $VALUE)
 		if [ $EXISTS -eq 0 ]
 		then
 			echo "Found new Password: $PW"
 			echo "New Password: $PW" >> $PATH/error.log
-			echo "$PW:$HASH" >> $PATH/passwords$i.txt
+			echo "$PW:$HASH" >> $PATH/examples/passwords$i.txt
 		fi
 	done
 done
